@@ -7,6 +7,39 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="popup">
+        <button href="" class="fps" onclick="ShowFps()">stabile</button>
+        </div>
 </body>
+<script>
+    const fps = document.getElementsByClassName("fps")[0];
+        const popup = fps.parentElement;
+        let cnt = 0;
+        const ShowFps = function(e) {
+            // let obj = "";
+            // for(let key in screen) {
+            //     if (typeof screen[key] !== "object") {
+            //         obj += ${key}: ${screen[key]}\n;
+            //     }
+            // }
+            cnt++;
+        console.log("Click " + cnt);
+        }
+
+        const changeValue = function(e) {
+            this.firstChild.nodeValue = (Math.random() * 10).toFixed(0);
+            if (fps.innerText === "10") {
+            fps.removeEventListener("click", changeValue);
+        }
+        }
+        fps.addEventListener("click", changeValue);
+
+        document.body.addEventListener("click", (e) => {
+            e.target.style.backgroundColor = `rgb(
+            ${(Math.random()*254).toFixed()},
+            ${(Math.random()*254).toFixed()},
+            ${(Math.random()*254).toFixed()}
+            )`
+        });
+</script>
 </html>
